@@ -1,0 +1,371 @@
+<div class="row">
+    <div class="col">
+        <div *ngIf="!list"  widget class="card">
+            <div class="card-header">
+
+                <span class="text-uppercase">Nueva Cartera</span>
+
+                <div class="widget-controls"> 
+                    
+                </div>        
+            </div>
+            
+            <div class="card-block widget-body">
+                  
+
+                <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}} </strong> 
+                </div>
+                
+                <div *ngIf="toast" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}}</strong> 
+                </div>
+
+                 <form  [formGroup]="walletForm">
+
+                                    <div class="row">
+                                        <div class=" col-md-4">
+                                            <div class="form-group"> 
+                                                 <label>Tipo de Cobro</label>
+                                                <ng-select (selected)="changeType($event)" class="form-group"
+                                                            [(options)]="typewalletOptions"
+                                                            [placeholder]="TipoDeCobro"
+                                                            [multiple]="false"
+                                                            formControlName="typewallet"
+                                                      
+                                                        >
+                                                </ng-select>
+
+                                            </div>
+                                         <div class="form-group">
+                                             <label>Cliente</label>
+                                              <ng-select (selected)="showData($event)"
+                                                        [(options)]="clients"
+                                                        [placeholder]="Matricula"
+                                                        [multiple]="false"
+                                                        formControlName="idClient"
+                                                    
+                                                    >
+                                            </ng-select>
+
+                                         </div>
+                                            <div class="form-group">
+                                                <label for="">N. Factura</label>
+                                                <input type="text" formControlName="walletNumber" class="form-control" placeholder="Numero Factura">
+                                            </div>
+                                           
+
+                                            <div class="row">
+                                                <div  class="form-group col-md-6">  <label>Telefono</label><input type="text" formControlName="phone" class="form-control" placeholder="Telefono"></div>
+                                                <div class="form-group col-md-6">  <label>Cedula o Ruc</label><input type="text" formControlName="id" class="form-control" placeholder="Cedula o Ruc"></div>
+
+
+                                            </div>
+                                             <div  class="form-group"> <label>Direccion:</label> <input type="text" formControlName="address" class="form-control" placeholder="Direccion"></div>
+                                         
+                                     
+                                           
+                                        </div>
+                                        
+                                        <div class=" col-md-4">
+                                            <div class="form-group"> 
+                                                 <label>Fecha Factura</label>
+                                                <input type="date" formControlName="walletDate" class="form-control" placeholder="Fecha Factura">
+                                            </div>
+
+                                             <div class="form-group"> 
+                                                 <label>Primer Vencimiento</label>
+                                                <input type="date" formControlName="firstPaymentDate" class="form-control" placeholder="Fecha Factura">
+                                            </div>
+
+                                                <div class="form-group">
+                                                     <label>Tipos de Pago</label>
+                                                    <ng-select class="form-group"
+                                                                [(options)]="paymentTypes"
+                                                                [placeholder]="Matricula"
+                                                                [multiple]="false"
+                                                                formControlName="idPaymentType"
+                                                        
+                                                            >
+                                                    </ng-select>
+
+                                                </div>
+                                                 <div class="form-group"> 
+                                                    <label>Pago Inicial</label>
+                                                    <input type="number" formControlName="initialPayment" class="form-control" placeholder="Pago Inicial">
+                                                </div>
+                                                 <div class="form-group"> 
+                                                    <label>Pagos Iguales</label>
+                                                    <input type="number" formControlName="equalPayments" class="form-control" placeholder="Pagos Iguales">
+                                                </div>
+                                               
+
+                                        </div>
+
+                                        <div class=" col-md-4">
+                                                <div class="form-group"> 
+                                                    <label> Prima </label>
+                                                    <input type="number" formControlName="totalPrimaValue" class="form-control" placeholder="prima">
+                                                </div>
+                                          <div class="form-group"> 
+                                                    <label>Iva </label>
+                                                    <input type="number" formControlName="totalIvaValue" class="form-control" placeholder="Iva">
+                                            </div>
+                                             <div class="form-group"> 
+                                                    <label>Valor Total</label>
+                                                    <input type="number" formControlName="totalwalletValue" class="form-control bg-primary text-white" placeholder="Valor total">
+                                                </div>
+                                        </div>
+                                    </div>
+
+                               
+                                      
+                        
+                </form> 
+                <div class="card">
+                    <div class="card-header">
+                        Polizas
+                    </div>
+                    <div class="card-block">
+                                            <form [formGroup]="walletPaymentForm" class="row form-inline">
+
+                                    <div class="row">
+                                         <div class="col-md-10">
+                                          
+                                             <div class="row row-input">
+                                                <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label for="">N. Poliza</label>
+                                                <ng-select
+                                                    [(options)]="policies"
+                                                    [placeholder]="Origen"
+                                                    [multiple]="false"
+                                                    (selected)="getAnnexs($event)"
+                                                    formControlName="idPolicy">
+                                                </ng-select>
+
+                                                </div>
+                                               
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label for="">N. Anexo</label>
+                                                <ng-select
+                                                    (selected)="getAnnexDetail($event)"
+                                                    [(options)]="annexs"
+                                                    [placeholder]="Anexos"
+                                                    [multiple]="false"
+                                                    formControlName="idPolicyAnnex">
+                                                </ng-select>
+
+                                                </div>
+                                                
+                                            
+                                                <div class="form-group col-md-3 col-sm-6" [ngClass]="{}">
+                                                     <label for="">Prima</label>
+                                                            <input type="text" formControlName="prima" class="form-control" placeholder="Detalles">
+                                                     </div>
+                                                    <div class="form-group col-md-3 col-sm-6" [ngClass]="{}">
+                                                         <label for="">N. Ref</label>
+                                                            <input type="text" formControlName="refNumber" class="form-control" placeholder="Observaciones">
+                                                     </div>
+                                                
+                                             </div>
+                                             <div class="row row-input">
+                                                  <div class="form-group col-md-3 col-sm-6" [ngClass]="{}">
+                                                     <label for="">S. Campesino</label>
+                                                            <input type="number" formControlName="segCamp" class="form-control" placeholder="S. Campesino">
+                                                     </div>
+                                                    <div class="form-group col-md-3 col-sm-6" [ngClass]="{}">
+                                                         <label for="">S. Banco</label>
+                                                            <input type="number" formControlName="superBank" class="form-control" placeholder="S. Banco">
+                                                     </div>
+
+                                                      <div class="form-group col-md-3 col-sm-6" [ngClass]="{}">
+                                                         <label for="">Valor Total</label>
+                                                            <input type="number" formControlName="totalValue" class="form-control bg-primary text-white" placeholder="Valor Total">
+                                                     </div>
+                                            
+                                               
+                                    
+                                             </div>
+
+                                    </div>
+
+                                     <div class="form-group col-md-2 col-sm-6" *ngIf="create">
+                                        <button [disabled]="!walletPaymentForm.valid" (click)="saveItem()" type="submit" class="btn btn-primary btn-sm">Agregar </button>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-2 col-sm-6" *ngIf="!create">
+                                        <button [disabled]="!walletPaymentForm.valid" (click)="editruta()" type="submit" class="btn btn-primary">Editar</button>
+                                    </div>
+
+
+                                    </div>
+                                   
+                                  
+                                        
+                                   
+                                
+                                 
+                                
+                                
+                </form>  
+
+                <div class="table-responsive datatable table-margin">
+                    <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                            <tr>
+                                                       
+                                <th><mfDefaultSorter by="phone">N. Anexo</mfDefaultSorter></th>
+                                 <th><mfDefaultSorter by="phone">Prima</mfDefaultSorter></th> 
+                                 <th><mfDefaultSorter by="phone">Total</mfDefaultSorter></th>
+
+                                <th>Acciones</th>      
+                            </tr>
+                        </thead>
+                        <tbody>                           
+
+                            <tr *ngFor="let policy of itemPolicies; let i = index">
+                                <td><strong>  {{policy.annexNumber}}  </strong></td>
+                                <td>{{policy.prima}}</td>
+                                 <td>{{policy.totalValue}}</td>
+              
+                               
+
+                                <td class="row col  bottom-15">
+                                  
+                                      <div class="d-inline-block">
+                                                <div class="row">
+                        
+
+                                                        <button type="button btn-sm" (click)="borrarItem(i)" class="btn btn-danger" >Borrar</button>
+
+
+                                                </div>
+                                                
+                                            </div>
+                                </td>
+                                </tr>
+                          
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="12">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                 <div class="btn-wrapper">
+                    <button [disabled]="itemPolicies.length == 0 || !walletForm.valid" type="button" class="btn btn-primary btn-lg transition" (click)="generateFactura()">Generar Factura</button>
+                
+                </div>
+
+                    </div>
+ 
+
+                </div>
+                
+            </div>
+        </div>
+        <div *ngIf="list"  class="card">
+             <div class="card-header">
+
+                <span class="text-uppercase">Listado de Carteras</span>
+
+                <div class="widget-controls"> 
+                                    
+                   
+                </div>        
+            </div>
+             <div class="card-block widget-body">
+                <button data-toggle="collapse" data-target="#filters" class="btn btn-primary"><i class="fa fa-filter"></i></button>
+                    <div class="collapse" id="filters" style="margin: 20px;">
+                        <div class="row form-group" >
+                            <div class="col-md-3"><label for="">Fecha Inicio</label><input [(ngModel)]="searchStart" class="form-control" type="date"></div>
+                            <div class="col-md-3"><label for="">Fecha Fin</label><input [(ngModel)]="searchEnd" class="form-control" type="date"></div>
+                            <div class="col-md-2"> <label for="">Placa</label>  <input [(ngModel)]="searchPlaca" class="form-control" type="text" name="" id=""></div>
+                            <div class="col-md-2"><label for="">Chasis</label><input [(ngModel)]="searchChasis" class="form-control" type="text" name="" id=""></div>
+                            <div class="col-md-1"><button style="margin-top: 20px;" (click)="search()" class="btn btn-primary"><i class="fa fa-search"></i></button></div>
+                        </div>
+                    </div>
+
+                <div class="table-responsive datatable table-margin">
+                    <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                            <tr>
+                                                       
+                                <th><mfDefaultSorter by="phone">N. Comprobante</mfDefaultSorter></th>
+                                <th><mfDefaultSorter by="phone">Numero de Factura</mfDefaultSorter></th> 
+                                 <th><mfDefaultSorter by="phone">Valor de Pago</mfDefaultSorter></th> 
+                                 <th><mfDefaultSorter by="phone">Fecha de Vencimiento</mfDefaultSorter></th>
+                                <th>Acciones</th>      
+                            </tr>
+                        </thead>
+                        <tbody>                           
+
+                            <tr *ngFor="let wallet of wallets">
+                                <td>{{wallet.compPayment}}</td>
+                                <td><span *ngIf="wallet.wallet">{{wallet.wallet.DetailsBillingData.billingNumber}}</span></td>
+                                <td><strong>{{wallet.paymentValue}}</strong></td>
+                                <td>{{wallet.expirationDate | date: 'short'}}</td>
+                                <td><button (click)="factura(wallet._id)" class="btn btn-primary btn-sm "> Imprimir Recibo </button></td>
+                                </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+
+             </div>
+        </div>
+    
+    </div>
+</div>
+
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modal-primary-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header state modal-danger">                                    
+                <h4 class="modal-title" id="modal-error-label"><i class="fa fa-exclamation-triangle"></i>Estas Seguro?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+               <!--Esta seguro-->
+               {{messages.sure_delete}}
+            </div>
+            <div class="modal-footer">
+                <button (click)="deleteWallet()" type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modal-primary-label">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header state modal-primary">  
+                    Editar Cartera                                  
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+     
+                </div>
+                <div class="modal-footer">
+                    <button (click)="editWallet()" type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

@@ -1,0 +1,2219 @@
+{
+  "controllers" : [
+    {
+      "name": "city",
+      "show": "Ciudad",
+      "actions" : [
+        {
+          "typeList":"",
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "subItemAnnex",
+      "show": "SubItemAnnex",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "itemAnnex",
+      "show": "ItemAnnex",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "creditNote",
+      "show": "Nota de Credito",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "sinisterMedicalDocumentation",
+      "show": "SinisterMedicalDocumentation",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "sinisterMedical",
+      "show": "Sinister Medical",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "annexMedicalBusinessItem",
+      "show": "AnnexMedicalBusiness",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "annexMedicalBusiness",
+      "show": "AnnexMedicalBusiness",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "policyMedicalBusiness",
+      "show": "PolicyMedicalBusiness",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "businessClient",
+      "show": "Empresa Cliente",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "planAlternative",
+      "show": "Plan Alternative",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "alternative",
+      "show": "Alternativo",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "planAssociation",
+      "show": "Plan Association",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "plan",
+      "show": "Plan",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "dependent",
+      "show": "Dependiente",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "sinisterCarDocumentation",
+      "show": "Documentacion Siniestro Carro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "sinisterCar",
+      "show": "Sinistro Car",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "sinister",
+      "show": "Sinistro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "SinisterDocumentationRamo",
+      "show": "Documentacion Sinistro Ramo",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "sinisterDocumentation",
+      "show": "Documentacion Siniestrio",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "walletPaymentBinnacle",
+      "show": "Bitacore Pago Cartera",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "walletPayment",
+      "show": "Pago Cartera",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        },
+        {
+          "name": "print",
+          "show": "Imprimir",
+          "type": "get",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "wallet",
+      "show": "Cartera",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "billingPolicy",
+      "show": "Polza Factura",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "billing",
+      "show": "Factura",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "itemAnnexExtra",
+      "show": "Anexo Carro Item",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "itemAnnexCar",
+      "show": "Anexo Carro Item",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "policyAnnex",
+      "show": "Anexo Polza",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "bankInsurance",
+      "show": "Tarjetas",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "route",
+      "show": "Rutas",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "policy",
+      "show": "Poliza",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "frequencyPayment",
+      "show": "Frecuencia de pago",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "policyType",
+      "show": "Tipo de Poliza",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "car",
+      "show": "Carro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "carModel",
+      "show": "Modelo Carro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "carColor",
+      "show": "Color Carro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "country",
+      "show": "Pais",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "carBrand",
+      "show": "Marca Carro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "carType",
+      "show": "Tipo de Carro",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "client",
+      "show": "Cliente",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "issue",
+      "show": "Issue",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "quote",
+      "show": "Cotizacion",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "paymentType",
+      "show": "Tipo de Pagos",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "letterAccident",
+      "show": "Carta de Accidente",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "tasa",
+      "show": "Tasa",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "bank",
+      "show": "Banco",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "helpLink",
+      "show": "Link de Ayuda",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "percentageRamo",
+      "show": "Porcentaje Ramo",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "insurance",
+      "show": "Aseguradora",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        },
+        {
+          "name": "enable",
+          "show": "Habilitar",
+          "type": "post",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "ramo",
+      "show": "Ramo",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        },
+        {
+          "name": "enable",
+          "show": "Habilitar",
+          "type": "post",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "deductible",
+      "show": "Deducible",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "typeClient",
+      "show": "Tipo de Cliente",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "maritalStatus",
+      "show": "Estado Civil",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "show": "Log",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        }
+      ]
+    },
+    {
+      "name": "setting",
+      "show": "Configuracion",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "account",
+      "show": "Cuenta",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "branch",
+      "show": "Sucursal",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "show": "Usuario",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "role",
+      "show": "Roles",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        },
+        {
+          "name": "viewgrant",
+          "show": "Ver Permisos",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "addgrant",
+          "show": "Asignar Permisos",
+          "type": "post",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "business",
+      "show": "Empresas",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        },
+        {
+          "name": "viewSchedule",
+          "show": "Visualizar Horarios",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "addSchedule",
+          "show": "Crear Horarios",
+          "type": "post",
+          "menu": false
+        }
+      ]
+    },
+    {
+      "name": "license",
+      "show": "Licensias",
+      "actions" : [
+        {
+          "name": "list",
+          "show": "Listado",
+          "type": "get",
+          "menu": true
+        },
+        {
+          "name": "view",
+          "show": "Visualizar",
+          "type": "get",
+          "menu": false
+        },
+        {
+          "name": "add",
+          "show": "Crear",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "edit",
+          "show": "Editar",
+          "type": "post",
+          "menu": false
+        },
+        {
+          "name": "delete",
+          "show": "Eliminar",
+          "type": "delete",
+          "menu": false
+        }
+      ]
+    }
+  ]
+}

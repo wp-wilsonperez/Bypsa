@@ -1,0 +1,810 @@
+<div class="row">
+    <div *ngIf="!anexos " class="col-md-12">
+        <div widget class="card">
+            <div class="card-header">
+                 <button type="button" [routerLink]="['/pages/polizas/polizas']" class="btn btn-main btn-sm transition padding-back">Atras</button>
+                <span class="text-uppercase">Listado de Items de Poliza : {{polizaId}}</span>
+
+      
+            </div>
+            
+            <div class="card-block widget-body">
+                  
+
+                        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>{{message}} </strong> 
+                        </div>
+                       
+                        <div *ngIf="toast" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>{{message}}</strong> 
+                        </div>
+                
+                         <form  [formGroup]="polizaAnnexForm">
+                                    <div class="form-group col-md-10" [ngClass]="{}">
+                                        <div class="row">
+
+                                            <div class="col-md-6"> <input type="text" formControlName="annexNumber" class="form-control" placeholder="N. Anexo"></div>
+                                            <div class="col-md-6"> <input type="text" formControlName="certificateNumber" class="form-control" placeholder="N. Certificado"></div>
+                                          
+                                        </div>
+                                        <br/>
+                                         <div class="row">
+                                            <div class="col-md-12"> <input type="text" formControlName="detailsAnnex" class="form-control" placeholder="Detalle"></div>
+         
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-md-4"> </div>
+                                            <div class="col-md-4">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input formControlName="hasBilling" type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">Tiene Factura</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-4"> <input type="number" formControlName="totalValue" class="form-control" placeholder="V. Total"></div>
+                                        </div>
+                                        
+                                    </div>
+                                      
+                                 
+                                    <div class="row">
+                                            <div class="form-group col-md-2 col-sm-6" *ngIf="create">
+                                                    <button [disabled]="!polizaAnnexForm.valid" (click)="savePolizaAnnex()" type="submit" class="btn btn-primary btn-sm transition">Guardar</button>
+                                                </div>
+                                                
+                                                <div class="form-group col-md-2 col-sm-6" *ngIf="!create">
+                                                    <button [disabled]="!polizaAnnexForm.valid" (click)="editpolizaAnnex()" type="submit" class="btn btn-primary btn-sm transition">Editar</button>
+                                                </div>
+
+                                    </div>
+                                        <div class="row">
+                                                <div class="form-group col-md-2 col-sm-6">
+                                                        <input type="file">
+                                                        
+                                                    </div>
+                                                    
+                                        </div>
+                                   
+                </form>  
+            <div style="padding-top: 10px;"class="table-responsive datatable">
+                    <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                            <tr>
+                                <th> <mfDefaultSorter by="name">Numero de SubItem</mfDefaultSorter></th>                              
+                                <th><mfDefaultSorter by="phone">Numero de Certificado</mfDefaultSorter></th>
+                                 <th><mfDefaultSorter by="phone">Valor Total</mfDefaultSorter></th> 
+                              
+
+                                <th>Acciones</th>      
+                            </tr>
+                        </thead>
+                        <tbody>                           
+
+                            <tr  *ngFor="let polizaAnnex of polizaAnnexs">
+                                <td><strong>  {{polizaAnnex.annexNumber}}   </strong></td>
+                                <td>{{polizaAnnex.certificateNumber}}</td>
+                                <td>{{polizaAnnex.totalValue}}</td>
+              
+                               
+
+                                <td class="row col  bottom-15">
+                                  
+                                      <div class="d-inline-block">
+                                                <div class="row">
+
+
+                                                        <button type="button" (click)="openItems(polizaAnnex._id,polizaAnnex.annexNumber)" class="btn btn-primary btn-sm transition" data-toggle="modal" data-target="#anexos-modal">Items</button>
+
+                                                                
+
+                                                        <button type="button" (click)="polizaAnnexDetail(polizaAnnex)" class="btn btn-success btn-sm transition" >Editar</button>
+
+                                                        <button type="button" (click)="deletePolizaAnnex(polizaAnnex._id)" class="btn btn-danger btn-sm transition" >Borrar</button>
+
+                                                                        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modal-primary-label">
+                                                                            <div class="modal-dialog" role="document">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header state modal-danger">                                    
+                                                                                        <h4 class="modal-title" id="modal-error-label"><i class="fa fa-exclamation-triangle"></i>Estas Seguro?</h4>
+                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                       <!--Esta seguro-->
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button (click)="deletepolizaAnnex()" type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                </div>
+                                                
+                                            </div>
+                                </td>
+                                </tr>
+                          
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="12">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="anexos" class="col-md-12">  
+         <div widget class="card">
+            <div class="card-header">
+                    <button type="button" (click)="backToAnnexs()" class="btn btn-main btn-sm transition padding-back">Atras</button>
+
+                <span class="text-uppercase">ITEMS DE ANEXO # {{polizaAnnexNumber}}</span>
+                   <div class="widget-controls"> 
+                    <a data-widgster="close" (click)="closeItems()" class="transition"><i class="fa fa-times"></i></a>
+                </div>  
+      
+            </div>
+            
+            <div class="card-block widget-body">
+                    <div *ngIf="emptyTasa" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                           No hay tasa registrada para este ramo y aseguradora  <strong> <a [routerLink]="['/pages/tasas/tasa']">Crear tasa</a> </strong> 
+                        </div>
+
+                <div class="list-group list-padding">
+                           <a class="list-group-item list-group-item-action list-group-item-primary ">
+                              
+                            
+                            </a>
+
+                </div>
+                     <div  class="col-lg-12 data-holder">
+                        <div class="clearfix">
+                            <ul class="nav nav-tabs top pull-left w-100p">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#ta">Datos de Articulos</a>
+                                </li>                       
+                            </ul>
+                        </div>
+                        <div class="tab-content top">
+                            <div class="tab-pane active" id="ta">
+                                   
+                                        <item-annex-car [poliza]="policyId" [futureYears]= 'futureYears' *ngIf="idRamo == '599222be7f05fc0933b643f3' "  (saved)="saveItem($event)" (subtract)="subtractPrima($event)" ></item-annex-car>
+
+                                        <item-annex-transport *ngIf="idRamo == '599223147f05fc0933b643fb' || idRamo == '599223147f05fc0933b643fc'  || idRamo == '599223147f05fc0933b643fc' "  (saved)="saveItem($event)" (subtract)="subtractPrima($event)"></item-annex-transport>
+
+                                        <item-annex-standart *ngIf="idRamo != '599223147f05fc0933b643fb' && idRamo != '599223147f05fc0933b643fc'  && idRamo != '599223147f05fc0933b643fc' && idRamo != '599222be7f05fc0933b643f3' "  (saved)="saveItem($event)" (subtract)="subtractPrima($event)"></item-annex-standart>
+          
+                                        <!-- tables for policy-->
+                                        <div *ngIf="idRamo != '599223147f05fc0933b643fb' && idRamo != '599223147f05fc0933b643fc'  && idRamo != '599223147f05fc0933b643fc' && idRamo != '599222be7f05fc0933b643f3' " style="padding-top: 10px;"class="table-responsive datatable items-ramo">
+                                                <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> <mfDefaultSorter by="idCar">Detalles</mfDefaultSorter></th>                              
+                                                            <th><mfDefaultSorter by="phone">Observaciones</mfDefaultSorter></th>
+                                                            <th><mfDefaultSorter by="phone">Deducibles</mfDefaultSorter></th> 
+                                                            <th><mfDefaultSorter by="phone">Dias Validos</mfDefaultSorter></th> 
+                                                            <th><mfDefaultSorter by="amparoPatrimonial">Deducible</mfDefaultSorter></th> 
+                                                            <th><mfDefaultSorter by="rc">Fecha Inclusion</mfDefaultSorter></th> 
+                                                            <th><mfDefaultSorter by="others">Fecha Exclusion</mfDefaultSorter></th> 
+                                                            <th><mfDefaultSorter by="carValue">Valor Total del Item</mfDefaultSorter></th> 
+                                                            <th><mfDefaultSorter by="carValue">Valor Total Prima</mfDefaultSorter></th> 
+                                                   
+                                                            
+                                            
+                                                            <th>Acciones</th>      
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>                           
+                                            
+                                                        <tr *ngFor="let item of itemAnnexs; let i = index">
+                                                            <td><strong> {{item.detailsItem}}  </strong></td>
+                                                            <td> {{item.observationsItem}}</td>
+                                                            <td> {{item.deductible}}</td>
+                                                            <td> {{item.validDays}}</td>
+                                                            <td> {{item.deductible}}</td>
+                                                            <td> {{item.inclusionDate}}</td>
+                                                            <td> {{item.exclusionDate}}</td>
+                                                            <td> {{item.totalValueItem}}</td>
+                                                            <td>{{item.totalValuePrimaItem}}</td>
+                                                          
+                                                            <td>
+                                                            
+                                                                <div class="d-inline-block">
+                                                                            <div class="row">
+                                                                            
+                                                                                <button type="button" (click)="deleteCarItem(i)"   class="btn btn-danger btn-sm transition">Borrar</button>
+                                            
+                                                                                <button (click)="getItem(i)" type="button" data-toggle="modal" data-target="#extra-modal"  class="btn btn-success btn-sm transition">Sub Items</button>
+                                            
+                                                                                                
+                                            
+                                                                            </div>
+                                                                            
+                                                                                                </div>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                            
+                                                                            </tbody>
+                                                                            <tfoot>
+                                                                                <tr>
+                                                                                    <td colspan="12">
+                                                                                        <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tfoot>
+                                                                        </table>
+                                                                        <button class="btn btn-block btn-primary" *ngIf="itemAnnexs.length > 0" (click)="saveAll()" > Guardar Todo</button>
+                                                                        
+                                                                            
+                                                                </div>
+                                        <div *ngIf="idRamo == '599222be7f05fc0933b643f3' " style="padding-top: 10px;"class="table-responsive datatable items-ramo">
+                                            <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                                                <thead>
+                                                    <tr>
+                                                        <th> <mfDefaultSorter by="idCar">Carro</mfDefaultSorter></th>                              
+                                                        <th><mfDefaultSorter by="phone">Tasa</mfDefaultSorter></th>
+                                                        <th><mfDefaultSorter by="phone">Uso de Carro</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="amparoPatrimonial">Amparo Patrimonial</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="rc">RC</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="others">Otros</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="detailsCar">Detalle</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="others">F. Exclusion</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="detailsCar">F. Inclusion</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="carValue">Valor Total del Item</mfDefaultSorter></th> 
+                                                        <th><mfDefaultSorter by="carValue">Valor Total Prima</mfDefaultSorter></th> 
+                                                        
+                                        
+                                                        <th>Acciones</th>      
+                                                    </tr>
+                                                </thead>
+                                                <tbody>                           
+                                                   
+                                                    <tr *ngFor="let item of itemAnnexs; let i = index">
+                                                        <td><strong> {{item.carMatricula}}  </strong></td>
+                                                        <td> {{item.tasa}}</td>
+                                                       
+                                                        <td> {{item.carUseName}}</td>
+                                                        <td> {{item.amparoPatrimonial}}</td>
+                                                        <td> {{item.rc}}</td>
+                                                        <td> {{item.others}}</td>
+                                                        <td> {{item.detailsCar}}</td>
+                                                        <td> {{item.exclusionDate}}</td>
+                                                        <td> {{item.inclusionDate}}</td>
+                                                        <td>{{item.totalValueItem}}</td>
+                                                        <td>{{item.totalValuePrimaItem}}</td>
+                                                        <td>
+                                                            <div class="d-inline-block">
+                                                                        <div class="row">
+                                                                            <button type="button" (click)="deleteCarItem(i)"  class="btn btn-danger btn-sm transition">Borrar</button>
+                                                                            <button (click)="getItem(i)" type="button" data-toggle="modal" data-target="#extra-modal"  class="btn btn-success btn-sm transition">SubItems</button>
+                                                                        </div>
+                                                           </div>
+                                                        </td>
+                                                  </tr>
+                                                                        
+                                                                        </tbody>
+                                                                        <tfoot>
+                                                                            <tr>
+                                                                                <td colspan="12">
+                                                                                    <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tfoot>
+                                                                    </table>
+                                                                    <button class="btn btn-block btn-primary" *ngIf="itemAnnexs.length > 0" (click)="saveAll()" > Guardar Todo</button>
+                                                                    
+                                                                        
+                                                            </div>
+                                        <div  *ngIf="idRamo == '599223147f05fc0933b643fb' || idRamo == '599223147f05fc0933b643fc'  || idRamo == '599223147f05fc0933b643fc' " style="padding-top: 10px;"class="table-responsive datatable items-ramo">
+                                                                    <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th> <mfDefaultSorter by="idCar">Detalles</mfDefaultSorter></th>                              
+                                                                                <th><mfDefaultSorter by="phone">Observaciones</mfDefaultSorter></th>
+                                                                                <th><mfDefaultSorter by="phone">Deducibles</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="phone">Transportacion</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="amparoPatrimonial">Aplicacion</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="rc">Embalaje</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="others">Mercaderia</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="detailsCar">Cobertura</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="others">F. Exclusion</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="detailsCar">F. Inclusion</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="carValue">Valor Total del Item</mfDefaultSorter></th> 
+                                                                                <th><mfDefaultSorter by="carValue">Valor Total Prima</mfDefaultSorter></th>
+                                                                                
+                                                                
+                                                                                <th>Acciones</th>      
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>                           
+                                                                
+                                                                            <tr *ngFor="let item of itemAnnexs; let i = index">
+                                                                                <td><strong> {{item.detailsItem}}  </strong></td>
+                                                                                <td> {{item.observationsItem}}</td>
+                                                                                <td> {{item.deductible}}</td>
+                                                                                <td> {{item.transportation}}</td>
+                                                                                <td> {{item.application}}</td>
+                                                                                <td> {{item.packaging}}</td>
+                                                                                <td> {{item.commodity}}</td>
+                                                                                <td> {{item.coverage}}</td>
+                                                                                <td> {{item.exclusionDate}}</td>
+                                                                                <td> {{item.inclusionDate}}</td>
+                                                                                <td> {{item.totalValueItem}}</td>
+                                                                                <td>{{item.totalValuePrimaItem}}</td>
+                                                                                <td>
+                                                                                
+                                                                                    <div class="d-inline-block">
+                                                                                                <div class="row">
+                                                                                                
+                                                                                                    <button type="button" (click)="deleteCarItem(i)"  class="btn btn-danger btn-sm transition">Borrar</button>
+                                                                
+                                                                                                    <button (click)="getItem(i)" type="button" data-toggle="modal" data-target="#extra-modal"  class="btn btn-success btn-sm transition">SubItems</button>
+                                                                
+                                                                                                                      
+                                                                
+                                                                                                </div>
+                                                                                                
+                                                                                                                    </div>
+                                                                                                        </td>
+                                                                                                        </tr>
+                                                                                                
+                                                                                                </tbody>
+                                                                                                <tfoot>
+                                                                                                    <tr>
+                                                                                                        <td colspan="12">
+                                                                                                            <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tfoot>
+                                                                                            </table>
+                                                                                            <button class="btn btn-block btn-primary" *ngIf="itemAnnexs.length > 0" (click)="saveAll()" > Guardar Todo</button>
+                                                                                            
+                                                                                                
+                                                                                    </div>
+                                                        
+
+
+
+                                        
+                                       
+                                  
+                               
+                            </div>
+                           
+                           
+                        </div>                   
+                    </div>
+      
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- vehiculos -->
+<div class="modal fade" *ngIf="idRamo == '599222be7f05fc0933b643f3' " id="extra-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" style="display: none;">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header state modal-primary">
+                                   
+                                    <h4 class="modal-title" id="modal-label"><i class="fa fa-car"></i>Sub Items Carro</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                   
+                                    <form [formGroup]="itemExtraForm" class="row form-inline">
+                                        <div class="form-group col-md-10">
+                                            <div class="row">
+                
+                            
+                                                <div class="col-md-4"> <label for="">Observaciones</label> <input type="text" formControlName="observationsSubItem" class="form-control" placeholder="Observaciones"></div>
+                                                <div class="col-md-4"> <label for="">Deducible</label>  <input type="text" formControlName="deductible" class="form-control" placeholder="Deducible"></div>
+                                                <div class="col-md-4"><label for="">Valor</label> <input (blur)="getPrimaSubItem()" type="" formControlName="valueSubItem" class="form-control" placeholder="Valor"></div>
+                                                
+                                            </div>
+                                            <div class="row">                  
+                                                <div class="col-md-4"> <label for="">Tasa</label> <input (blur)="getPrimaSubItem()" type="number" formControlName="tasa" class="form-control" placeholder="Tasa"></div>
+                                                <div class="col-md-4"><label for="">Flotante</label> <input (blur)="getFlotante()" type="number" formControlName="calcFloat" class="form-control" placeholder="Flotante"></div>
+                                                <div class="col-md-4"> <label for="">Prima Neta</label> <input type="number" formControlName="primaNeta" class="form-control" placeholder="Prima Neta"></div>
+                                                                                    
+                                            </div>
+                                            <div class="row">     
+                                                    <div class="col-md-6">         <label for="rg-from">F. Inclusion: </label> <input type="date" formControlName="inclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                                                    <div class="col-md-6"><label for="rg-from">F. Exclusion: </label> <input type="date" formControlName="exclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                                            </div>
+                                        
+                                        </div>
+                                        <div class="form-group col-md-2 col-sm-6" *ngIf="createItemCar">
+                                            <button [disabled]="!itemAnnexCarForm.valid" (click)="saveItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Agregar</button>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-2 col-sm-6" *ngIf="!createItemCar">
+                                            <button [disabled]="!polizaAnnexForm.valid" (click)="editItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Editar</button>
+                                        </div>
+                                </form>
+                                <div style="padding-top: 10px;"class="table-responsive datatable">
+                                    <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                                        <thead>
+                                            <tr>
+                                                <th> <mfDefaultSorter by="name">Observaciones</mfDefaultSorter></th>                              
+                                                <th><mfDefaultSorter by="phone">Deducible</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="phone">Valor</mfDefaultSorter></th> 
+                                                <th> <mfDefaultSorter by="name">Tasa</mfDefaultSorter></th>                              
+                                                <th><mfDefaultSorter by="phone">Flotante</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="phone">Prima Neta</mfDefaultSorter></th> 
+                                            
+            
+                                                <th>Acciones</th>      
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngIf="itemAnnexs[this.currentItem]">   
+                                         
+                                                    <tr *ngFor="let extra of itemAnnexs[this.currentItem].subItems; let i = index">
+                                                            <td><strong>  {{extra.observationsSubItem}}   </strong></td>
+                                                            <td>{{extra.deductible}}</td>
+                                                            <td>{{extra.valueSubItem || extra.carValue}}</td>
+                                                            <td>{{extra.tasa}}</td>
+                                                            <td>{{extra.calcFloat}}</td>
+                                                            <td>{{extra.primaNeta}}</td>
+                                                            <td>
+                                                            
+                                                                <div class="d-inline-block">
+                                                                            <div class="row">
+                                                                        <button type="button" (click)="deleteCarExtra(i)" class="btn btn-danger btn-sm transition">Borrar</button>
+                                                                            </div>
+                                                                            
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                                   
+                                        
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="12">
+                                                    <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                      
+                         
+                        </div>
+                                  
+                                                                
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+<!-- transport import modal -->
+
+<div class="modal fade" *ngIf="idRamo == '599223147f05fc0933b643fb' || idRamo == '599223147f05fc0933b643fc'  " id="extra-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header state modal-primary">
+                    <h4 class="modal-title" id="modal-label"><i class="fa fa-file-o"></i>Sub Items</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                   
+                        <form [formGroup]="itemExtraForm" class="row form-inline">
+                                <div class="form-group col-md-10">
+                                    <div class="row">
+        
+                    
+                                        <div class="col-md-4"> <label for="">Observaciones</label> <input type="text" formControlName="observationsSubItem" class="form-control" placeholder="Observaciones"></div>
+                                        <div class="col-md-4"> <label for="">Deducible</label>  <input type="text" formControlName="deductible" class="form-control" placeholder="Deducible"></div>
+                                        <div class="col-md-4"><label for="">Valor</label> <input (blur)="getPrimaSubItem()" type="" formControlName="valueSubItem" class="form-control" placeholder="Valor"></div>
+                                        
+                                    </div>
+                                    <div class="row">                  
+                                        <div class="col-md-4"> <label for="">Tasa</label> <input (blur)="getPrimaSubItem()" type="number" formControlName="tasa" class="form-control" placeholder="Tasa"></div>
+                                        <div class="col-md-4"><label for="">Flotante</label> <input (blur)="getFlotante()" type="number" formControlName="calcFloat" class="form-control" placeholder="Flotante"></div>
+                                        <div class="col-md-4"> <label for="">Prima Neta</label> <input type="number" formControlName="primaNeta" class="form-control" placeholder="Prima Neta"></div>
+                                                                            
+                                    </div>
+                                    <div class="row">     
+                                            <div class="col-md-6">         <label for="rg-from">F. Inclusion: </label> <input type="date" formControlName="inclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                                            <div class="col-md-6"><label for="rg-from">F. Exclusion: </label> <input type="date" formControlName="exclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                                    </div>
+                                
+                                </div>
+                                <div class="form-group col-md-2 col-sm-6" *ngIf="createItemCar">
+                                    <button [disabled]="!itemAnnexCarForm.valid" (click)="saveItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Agregar</button>
+                                </div>
+                                
+                                <div class="form-group col-md-2 col-sm-6" *ngIf="!createItemCar">
+                                    <button [disabled]="!polizaAnnexForm.valid" (click)="editItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Editar</button>
+                                </div>
+                        </form> 
+                 <div style="padding-top: 10px;"class="table-responsive datatable">
+                        <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                            <thead>
+                                <tr>
+                                    <th> <mfDefaultSorter by="name">Observaciones</mfDefaultSorter></th>                              
+                                    <th><mfDefaultSorter by="phone">Deducible</mfDefaultSorter></th>
+                                    <th><mfDefaultSorter by="phone">Valor</mfDefaultSorter></th> 
+                                    <th> <mfDefaultSorter by="name">Tasa</mfDefaultSorter></th>                              
+                                    <th><mfDefaultSorter by="phone">Flotante</mfDefaultSorter></th>
+                                    <th><mfDefaultSorter by="phone">Prima Neta</mfDefaultSorter></th> 
+                                
+
+                                    <th>Acciones</th>      
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="itemAnnexs[this.currentItem]">                           
+
+                                <tr *ngFor="let extra of itemAnnexs[this.currentItem].subItems; let i = index">
+                                    <td><strong>  {{extra.observationsSubItem}}   </strong></td>
+                                    <td>{{extra.deductible}}</td>
+                                    <td>{{extra.valueSubItem}}</td>
+                                    <td>{{extra.tasa}}</td>
+                                    <td>{{extra.calcFloat}}</td>
+                                    <td>{{extra.primaNeta}}</td>
+                                    <td class="row col  bottom-15">
+                                    
+                                        <div class="d-inline-block">
+                                                    <div class="row">
+                                                <button type="button" (click)="deleteCarExtra(i)" class="btn btn-danger btn-sm transition">Borrar</button>
+                                                    </div>
+                                                    
+                                                </div>
+                                    </td>
+                                    </tr>
+                            
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="12">
+                                        <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+          
+             
+            </div>
+                  
+                                                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- standart modal -->
+
+<div class="modal fade" *ngIf="idRamo != '599223147f05fc0933b643fb' && idRamo != '599223147f05fc0933b643fc'  && idRamo != '599223147f05fc0933b643fc' && idRamo != '599222be7f05fc0933b643f3' && idRamo != '599222ce7f05fc0933b643f4' && idRamo != '599222d07f05fc0933b643f5' " id="extra-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header state modal-primary">
+                    <h4 class="modal-title" id="modal-label"><i class="fa fa-file-o"></i>Sub Items</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                   
+                    <form [formGroup]="itemExtraForm" class="row form-inline">
+                        <div class="form-group col-md-10">
+                            <div class="row">
+
+            
+                                <div class="col-md-4"> <label for="">Observaciones</label> <input type="text" formControlName="observationsSubItem" class="form-control" placeholder="Observaciones"></div>
+                                <div class="col-md-4"> <label for="">Deducible</label>  <input type="text" formControlName="deductible" class="form-control" placeholder="Deducible"></div>
+                                <div class="col-md-4"><label for="">Valor</label> <input (blur)="getPrimaSubItem()" type="" formControlName="valueSubItem" class="form-control" placeholder="Valor"></div>
+                                
+                            </div>
+                            <div class="row">                  
+                                <div class="col-md-4"> <label for="">Tasa</label> <input (blur)="getPrimaSubItem()" type="number" formControlName="tasa" class="form-control" placeholder="Tasa"></div>
+                                <div class="col-md-4"><label for="">Flotante</label> <input (blur)="getFlotante()" type="number" formControlName="calcFloat" class="form-control" placeholder="Flotante"></div>
+                                <div class="col-md-4"> <label for="">Prima Neta</label> <input type="number" formControlName="primaNeta" class="form-control" placeholder="Prima Neta"></div>
+                                                                    
+                            </div>
+                            <div class="row">     
+                                    <div class="col-md-6">         <label for="rg-from">F. Inclusion: </label> <input type="date" formControlName="inclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                                    <div class="col-md-6"><label for="rg-from">F. Exclusion: </label> <input type="date" formControlName="exclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                            </div>
+                        
+                        </div>
+                        <div class="form-group col-md-2 col-sm-6" *ngIf="createItemCar">
+                            <button [disabled]="!itemAnnexCarForm.valid" (click)="saveItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Agregar</button>
+                        </div>
+                        
+                        <div class="form-group col-md-2 col-sm-6" *ngIf="!createItemCar">
+                            <button [disabled]="!polizaAnnexForm.valid" (click)="editItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Editar</button>
+                        </div>
+                </form> 
+                <div style="padding-top: 10px;"class="table-responsive datatable">
+                    <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                            <tr>
+                                <th> <mfDefaultSorter by="name">Observaciones</mfDefaultSorter></th>                              
+                                <th><mfDefaultSorter by="phone">Deducible</mfDefaultSorter></th>
+                                <th><mfDefaultSorter by="phone">Valor</mfDefaultSorter></th> 
+                                <th> <mfDefaultSorter by="name">Tasa</mfDefaultSorter></th>                              
+                                <th><mfDefaultSorter by="phone">Flotante</mfDefaultSorter></th>
+                                <th><mfDefaultSorter by="phone">Prima Neta</mfDefaultSorter></th> 
+                            
+
+                                <th>Acciones</th>      
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="itemAnnexs[this.currentItem]">                           
+
+                            <tr *ngFor="let extra of itemAnnexs[this.currentItem].subItems; let i = index">
+                                <td><strong>  {{extra.observationsSubItem}}   </strong></td>
+                                <td>{{extra.deductible}}</td>
+                                <td>{{extra.valueSubItem}}</td>
+                                <td>{{extra.tasa}}</td>
+                                <td>{{extra.calcFloat}}</td>
+                                <td>{{extra.primaNeta}}</td>
+                                <td class="row col  bottom-15">
+                                
+                                    <div class="d-inline-block">
+                                                <div class="row">
+                                            <button type="button" (click)="deleteCarExtra(i)" class="btn btn-danger btn-sm transition">Borrar</button>
+                                                </div>
+                                                
+                                            </div>
+                                </td>
+                                </tr>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="12">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+      
+         
+        </div>
+                  
+                                                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- Medic modal -->
+ <div class="modal fade" *ngIf=" idRamo == '599222ce7f05fc0933b643f4' || idRamo == '599222d07f05fc0933b643f5' || idRamo == '599223167f05fc0933b64406' || idRamo == '599223167f05fc0933b64403'" id="extra-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header state modal-primary">
+                    <h4 class="modal-title" id="modal-label"><i class="fa fa-heartbeat"></i>Sub Item Vida o Medico</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="modal-body">
+                        
+                         <form [formGroup]="itemExtraForm">
+                             <div class="row">
+
+                             </div>
+                             <div class="form-group col-md-12">
+                                 <div class="form-group row">
+                                     <div class="col-md-6"> <label for="">Observaciones</label> <input formControlName="observationsSubItem" class="form-control" /> </div>
+                                     <div class="col-md-6"> <label for="">Detalles</label> <input formControlName="detailsSubItem" class="form-control" /> </div>
+                                 </div>
+                                 <div class="form-group row">
+
+                                    <div class="col-md-6"> <label for="">Clientes</label>
+                                        <ng-select
+                                                [(options)]='clients'
+                                                formControlName="idClient"
+                                            >
+
+                                        </ng-select>
+                                        
+                                        </div>
+                                        <div class="col-md-6"> <label for="">Planes Alternativos</label>
+                                            <ng-select
+                                                    [(options)]='planAlternativos'
+                                                    formControlName="idPlanAlternative"
+                                                    (selected)="getAlternativeValue()"
+                                                >
+
+                                            </ng-select>
+                                            
+                                        </div>
+                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">  </div>
+                                    <div class="col-md-6"> <label for="">Valor Total</label> <input formControlName="primaNeta" class="form-control" /> </div>
+                                </div>
+                              
+                             
+                             
+                             </div>
+                             <div class="form-group col-md-2 col-sm-6" *ngIf="createItemCar">
+                                    <button [disabled]="!itemAnnexCarForm.valid" (click)="saveItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Agregar</button>
+                                </div>
+                                
+                                <div class="form-group col-md-2 col-sm-6" *ngIf="!createItemCar">
+                                    <button [disabled]="!polizaAnnexForm.valid" (click)="editItemAnnexExtra()" type="submit" class="btn btn-primary btn-sm transition">Editar</button>
+                                </div>
+                         </form> 
+                         <div style="padding-top: 10px;"class="table-responsive datatable">
+                                <table class="table table-striped table-hover table-sm" [mfData]="branchData  | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                                    <thead>
+                                        <tr>
+                                            <th> <mfDefaultSorter by="name">Observaciones</mfDefaultSorter></th>                              
+                                            <th><mfDefaultSorter by="phone">Detalles</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="phone">Valor</mfDefaultSorter></th> 
+                                        
+            
+                                            <th>Acciones</th>      
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="itemAnnexs[this.currentItem]">                           
+            
+                                        <tr *ngFor="let extra of itemAnnexs[this.currentItem].subItems; let i = index">
+                                            <td><strong>  {{extra.observationsSubItem}}   </strong></td>
+                                            <td>{{extra.detailsSubItem}}</td>
+                                            <td>{{extra.valueSubItem}}</td>
+                                            <td class="row col  bottom-15">
+                                            
+                                                <div class="d-inline-block">
+                                                            <div class="row">
+                                                        <button type="button" (click)="deleteCarExtra(i)" class="btn btn-danger btn-sm transition">Borrar</button>
+                                                            </div>
+                                                            
+                                                        </div>
+                                            </td>
+                                            </tr>
+                                    
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="12">
+                                                <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                  
+                     
+                        </div>
+                        
+                        
+                                                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+</div>

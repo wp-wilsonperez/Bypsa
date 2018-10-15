@@ -1,0 +1,370 @@
+{
+  "carUse" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Particular"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Público"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Particular",
+      "99097f2c1c" : "Público"
+    }
+  },
+  "docType" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Cedula"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Pasaporte"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "RUC"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Cedula",
+      "99097f2c1c" : "Pasaporte",
+      "99097f2c1d" : "RUC"
+    }
+  },
+  "paymentType" : {
+    "list": [
+      {
+        "id": "99097f2c1f",
+        "name": "Pago Contado"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Cuota Inicial"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Porcentaje Inicial"
+      },
+      {
+        "id": "99097f2c1a",
+        "name": "Pagos Iguales"
+      },
+      {
+        "id": "99097f2c1b",
+        "name": "Pago Tarjeta de Crédito"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Pago Contado",
+      "99097f2c1c" : "Cuota Inicial",
+      "99097f2c1d" : "Porcentaje Inicial",
+      "99097f2c1a" : "Pagos Iguales",
+      "99097f2c1b" : "Pago Tarjeta de Crédito"
+    }
+  },
+  "typeBilling" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Cliente"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Negocio"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Aseguradora"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Cliente",
+      "99097f2c1c" : "Negocio",
+      "99097f2c1d" : "Aseguradora"
+    }
+  },
+  "moneyType" : {
+    "list": [
+      {
+        "id": "99097f2c1f",
+        "name": "Efectivo"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Tarjeta Crédito"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Tarjeta Débito"
+      },
+      {
+        "id": "99097f2c1a",
+        "name": "Cheque"
+      },
+      {
+        "id": "99097f2c1b",
+        "name": "Dinero Electrónico"
+      },
+      {
+        "id": "99097f2c18",
+        "name": "Nota de Crédito"
+      },
+      {
+        "id": "99097f2c19",
+        "name": "Anticipos"
+      },
+      {
+        "id": "99097f2c16",
+        "name": "Ajustes de Saldo"
+      },
+      {
+        "id": "99097f2c17",
+        "name": "Cheque a la vista"
+      },
+      {
+        "id": "99097f2d1e",
+        "name": "Cheque Posfechado"
+      },
+      {
+        "id": "99097f2d1f",
+        "name": "Crédito Directo"
+      },
+      {
+        "id": "99097f2d1c",
+        "name": "Cheque Protestado"
+      },
+      {
+        "id": "99097f2d1d",
+        "name": "Cruce de Cuentas"
+      },
+      {
+        "id": "99097f2d1a",
+        "name": "Débito Bancario"
+      },
+      {
+        "id": "99097f2d1b",
+        "name": "Exedente"
+      },
+      {
+        "id": "99097f2d18",
+        "name": "Factura"
+      },
+      {
+        "id": "99097f2d19",
+        "name": "Letra de Cambio"
+      },
+      {
+        "id": "99097f2d16",
+        "name": "Nota de Debito"
+      },
+      {
+        "id": "99097f2d17",
+        "name": "Retenciones"
+      },
+      {
+        "id": "99097f2e1e",
+        "name": "Transferencias bancarias"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Efectivo",
+      "99097f2c1c" : "Tarjeta Crédito",
+      "99097f2c1d" : "Tarjeta Débito",
+      "99097f2c1a" : "Cheque",
+      "99097f2c1b" : "Dinero Electrónico",
+      "99097f2c18" : "Nota de Crédito",
+      "99097f2c19" : "Anticipos",
+      "99097f2c16" : "Ajustes de Saldo",
+      "99097f2c17" : "Cheque a la vista",
+      "99097f2d1e" : "Cheque Posfechado",
+      "99097f2d1f" : "Crédito Directo",
+      "99097f2d1c" : "Cheque Protestado",
+      "99097f2d1d" : "Cruce de Cuentas",
+      "99097f2d1a" : "Débito Bancario",
+      "99097f2d1b" : "Exedente",
+      "99097f2d18" : "Factura",
+      "99097f2d19" : "Letra de Cambio",
+      "99097f2d16" : "Nota de Debito",
+      "99097f2d17" : "Retenciones",
+      "99097f2e1e" : "Transferencias bancarias"
+    }
+  },
+  "sinisterState" : {
+    "list": [
+      {
+        "id": "99097f2c1f",
+        "name": "reportado"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "en proceso"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "documentado"
+      },
+      {
+        "id": "99097f2c1a",
+        "name": "pagado"
+      },
+      {
+        "id": "99097f2c1b",
+        "name": "negado"
+      },
+      {
+        "id": "99097f2c18",
+        "name": "archivado"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "reportado",
+      "99097f2c1c" : "en proceso",
+      "99097f2c1d" : "documentado",
+      "99097f2c1a" : "pagado",
+      "99097f2c1b" : "negado",
+      "99097f2c18" : "archivado"
+    }
+  },
+  "relationship" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Cónyuge"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Hijo/a"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Hijastro/a"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Cónyuge",
+      "99097f2c1c" : "Hijo/a",
+      "99097f2c1d" : "Hijastro/a"
+    }
+  },
+  "sex" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Femenino"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Masculino"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Empresa"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Femenino",
+      "99097f2c1c" : "Masculino",
+      "99097f2c1d" : "Empresa"
+    }
+  },
+  "typePolicy" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Nuevo"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Renovado"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "No Renovado"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Nuevo",
+      "99097f2c1c" : "Renovado",
+      "99097f2c1d" : "No Renovado"
+    }
+  },
+  "typeList" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "User"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Sucursal"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Global"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "User",
+      "99097f2c1c" : "Sucursal",
+      "99097f2c1d" : "Global"
+    }
+  },
+  "typeIncome" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "User"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Sucursal"
+      },
+      {
+        "id": "99097f2c1d",
+        "name": "Global"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "User",
+      "99097f2c1c" : "Sucursal",
+      "99097f2c1d" : "Global"
+    }
+  },
+  "sendingStatus" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Creación"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Enviado"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Creación",
+      "99097f2c1c" : "Enviado"
+    }
+  },
+  "pickupStatus" : {
+    "list":[
+      {
+        "id": "99097f2c1f",
+        "name": "Creado"
+      },
+      {
+        "id": "99097f2c1c",
+        "name": "Realizado"
+      }
+    ],
+    "one":{
+      "99097f2c1f" : "Creado",
+      "99097f2c1c" : "Realizado"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<form [formGroup]="itemAnnextransportForm">
+        <div class="form-group col-md-12">
+          
+            <div class="row">
+                    <div class="col-md-6"> <label for="rg-from">Descripcion: </label>  <textarea  type="text" formControlName="detailsItem" class="form-control" placeholder="Detalles"> </textarea></div>
+                    <div class="col-md-6"> <label for="rg-from">Observaciones: </label>  <textarea  type="text" formControlName="observationsItem" class="form-control" placeholder="Observaciones"></textarea> </div>
+               
+              
+            </div>
+           
+            <div class="row">
+                    <div class="col-md-6">   <label for="rg-from">Deducible: </label> <input type="text" formControlName="deductible" class="form-control" placeholder="Deducible"></div>
+                    <div class="col-md-6">   <label for="rg-from">Transportacion: </label> <input (focus)="resetField()" type="text" formControlName="transportation" class="form-control" placeholder="Transportacion"></div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">   <label for="rg-from">Aplicacion: </label> <input type="text" formControlName="amparoPatrimonial" class="form-control" placeholder="Aplicacion"></div>
+                    <div class="col-md-6">   <label for="rg-from">Embalaje: </label> <input (focus)="resetField()" type="text" formControlName="packaging" class="form-control" placeholder="Embalaje"></div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">   <label for="rg-from">Mercaderia: </label> <input (focus)="resetField()" type="text" formControlName="commodity" class="form-control" placeholder="Mercaderia"></div>
+                    <div class="col-md-6">   <label for="rg-from">Cobertura: </label> <input type="text" formControlName="coverage" class="form-control" placeholder="Cobertura"></div>
+
+            </div>
+            <div class="row">
+                    
+                                <div class="col-md-6">         <label for="rg-from">F. Inclusion: </label> <input type="date" formControlName="inclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+                                
+                                <div class="col-md-6"><label for="rg-from">F. Exclusion: </label> <input type="date" formControlName="exclusionDate" class="form-control" placeholder="Inclusion Date"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">   <label for="rg-from">Dias Validos: </label> <input  class="bg-warning" (focus)="resetField()" type="number" formControlName="validDays" class="form-control" placeholder="Dias Validos"></div>
+                <div class="col-md-6">   <label for="rg-from">Valor total del Item </label> <input (input)="subtractPrima()" type="text" formControlName="totalValueItem" class="form-control" placeholder="Valor Total"></div>
+
+        </div>
+        
+        </div>
+        <div class="form-group col-md-2 col-sm-6">
+            <button [disabled]="!itemAnnextransportForm.valid" (click)="saveItemAnnextransport()" type="submit" class="btn btn-primary btn-sm transition">Agregar</button>
+        </div>
+      
+    
+      
+</form> 
+
+
+                    
+

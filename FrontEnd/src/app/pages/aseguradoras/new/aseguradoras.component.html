@@ -1,0 +1,119 @@
+<div class="row">
+    
+    <div class="col-md-12">
+        <div widget class="card">
+            <div class="card-header">
+                <span>Aseguradora</span>
+                <div class="widget-controls">              
+  
+                    <a data-widgster="fullscreen" href="#" class="transition"><i class="fa fa-expand"></i></a>
+                    <a data-widgster="restore" href="#" class="transition"><i class="fa fa-compress"></i></a>                          
+         
+                </div>        
+            </div>
+            <div class="card-block widget-body">
+                  <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Verificar campos en rojo</strong>
+                  
+                </div>
+         <div *ngIf="toast" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}}</strong>
+                  
+                </div>
+           <div *ngIf="permission" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}}</strong> 
+                </div>
+                <div class="col-lg-12 col-12 bottom-30">
+                        <div class="clearfix">
+                            <ul class="nav nav-tabs top pull-left w-100p">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#ta">Datos Generales</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tb">Imagenes</a>
+                                </li>
+                           
+                            
+                                                      
+                            </ul>
+                        </div>
+                        <div class="tab-content top">
+                            <div class="tab-pane active" id="ta">
+                                    <form  [formGroup]="formAseguradora">
+                                                <div class="col-md-6">
+
+                                                <div class="form-group" [ngClass]="{'has-danger' : formAseguradora.get('ruc').hasError('required') && formAseguradora.get('ruc').value != ''  || formAseguradora.get('ruc').hasError('invalidRuc') && formAseguradora.get('ruc').value != '' 
+                                                             , 'has-success' : !formAseguradora.get('ruc').hasError('required') &&  !formAseguradora.get('ruc').hasError('invalidRuc')}" >
+                                                    <label class="form-control-label">Ruc</label>
+                                                    <input formControlName="ruc" type="text" class="form-control" [ngClass]="{'form-control-danger' :  formAseguradora.get('ruc').hasError('required')  ||  formAseguradora.get('ruc').hasError('invalidRuc'),
+                                                     'form-control-success' :  !formAseguradora.get('ruc').hasError('required') && !formAseguradora.get('ruc').hasError('invalidRuc') }" >
+
+                                                </div>
+                                                </div>
+                                                <div class="form-group col-md-6" [ngClass]="{'has-success':  !formAseguradora.get('bussinesName').hasError('required')}">
+                                                               
+                                                        <label class="form-control-label">Razon Social</label>
+                                                         <input [ngClass]="{'form-control-success': !formAseguradora.get('bussinesName').hasError('required') }" formControlName="bussinesName" type="text" class="form-control" >      
+                                                </div>
+
+                                                <div class="form-group col-md-6" [ngClass]="{'has-danger': formAseguradora.get('cellPhone').hasError('invalidMobile') && formAseguradora.get('cellPhone').value != '' , 'has-success': !formAseguradora.get('cellPhone').hasError('invalidMobile')  }">
+                                                        <label class="form-control-label">Telefono</label>
+                                                         <input formControlName="cellPhone" [ngClass]="{'form-control-danger' : formAseguradora.get('cellPhone').value != ''  && formAseguradora.get('cellPhone').hasError('invalidMobile') , 'form-control-success' :  !formAseguradora.get('cellPhone').hasError('invalidMobile')  }" maxlength="10" type="text" class="form-control" >
+                                                </div>
+                                                <div class="col-md-6 col-12 bottom-15">
+                                                    <h6>Estacionamiento</h6>
+                                                    <div class="form-group">
+                                                            <select class="form-control" formControlName="parking">
+                                                                    <option value="true">Si</option>
+                                                                    <option value="false">No</option>
+                                                                </select>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-md-6" [ngClass]="{'has-danger' : formAseguradora.get('mail').value != '' && formAseguradora.get('mail').hasError('required')  || formAseguradora.get('mail').value != ''  && formAseguradora.get('mail').hasError('invalidEmail')   ,
+                                                 'has-success' : !formAseguradora.get('mail').hasError('required') && !formAseguradora.get('mail').hasError('invalidEmail') }">
+                                                        <label class="form-control-label">Email</label>
+                                                        <input formControlName="mail"  [ngClass]="{'form-control-danger' : formAseguradora.get('mail').value != ''  && formAseguradora.get('mail').hasError('required') || formAseguradora.get('mail').value != ''  && formAseguradora.get('mail').hasError('invalidEmail'), 'form-control-success' :  !formAseguradora.get('mail').hasError('required') && !formAseguradora.get('mail').hasError('invalidEmail') }" type="text" class="form-control" >
+                                                </div>
+                                                <div class="form-group col-md-6"  [ngClass]="{'has-success':  !formAseguradora.get('web').hasError('required')}">
+                                                        <label class="form-control-label">Web</label>
+                                                        <input [ngClass]="{'form-control-success': !formAseguradora.get('web').hasError('required') }" formControlName="web" type="text" class="form-control" >
+                                                </div>
+                                                <div class="form-group col-md-6" [ngClass]="{'has-success':  !formAseguradora.get('address').hasError('required')}">
+                                                        <label class="form-control-label">Direccion</label>
+                                                        <textarea [ngClass]="{'form-control-success': !formAseguradora.get('address').hasError('required') }" formControlName="address" class="form-control" ></textarea>
+                                                </div>
+                                                
+
+                                            </form>
+                            </div>
+                            <div class="tab-pane" id="tb">
+                                 <div class="col-md-12">
+                                                    <az-multiple-image-uploader (change)="setImg($event)"></az-multiple-image-uploader>
+                                    </div>
+
+                              
+                          
+                           
+                        </div>  
+                                        
+                    </div>
+                    
+
+                
+                 
+              
+            </div>
+            <button [disabled]="!formAseguradora.valid" (click)="saveAseguradora()" type="submit" class="btn btn-primary"> Guardar </button>
+        </div>
+    </div>
+    </div>

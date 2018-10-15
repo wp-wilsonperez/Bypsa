@@ -1,0 +1,211 @@
+<div class="row">
+    <div class="col">
+        <div widget class="card">
+            <div class="card-header">
+                <span class="text-uppercase">Listado de Empresas</span>
+                <div class="widget-controls"> 
+             
+                    <a data-widgster="fullscreen" href="#" class="transition"><i class="fa fa-expand"></i></a>
+                    <a data-widgster="restore" href="#" class="transition"><i class="fa fa-compress"></i></a>                          
+                   
+                </div>        
+            </div>
+            <div class="card-block widget-body">
+
+                 <div *ngIf="toast" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}}</strong> 
+                </div>
+                <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}}</strong> 
+                </div>
+                
+                <div class="w-200 pull-right bottom-15">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input class="form-control" [(ngModel)]="searchTxt" id="table-search-input" (input)="getItems($event)"placeholder="Buscar nombre...">
+                    </div>
+                </div> 
+                <div class="table-responsive datatable">
+                    <table class="table table-striped table-hover table-sm" [mfData]="empresas | SearchPipe : searchText" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead>
+                            <tr>
+                                <th> <mfDefaultSorter by="cedula">Ruc</mfDefaultSorter></th>                              
+                                <th><mfDefaultSorter by="name">Nombre</mfDefaultSorter></th>
+                                <th><mfDefaultSorter by="lastName">Direccion</mfDefaultSorter></th>
+                                <th><mfDefaultSorter by="description">Telefonos</mfDefaultSorter></th>
+                                <th><mfDefaultSorter by="date">Email</mfDefaultSorter></th>
+                                <th>Acciones</th>      
+                            </tr>
+                        </thead>
+                        <tbody>                           
+                            <tr *ngFor="let empresa of empresas">
+                                <td><strong>  {{empresa.ruc}}   </strong></td>
+                                <td>{{empresa.name}}</td>
+                               
+                                <td>
+                                     {{empresa.address}}
+                                </td>
+                                <td>
+                                    {{empresa.phones}} 
+                                </td>
+                                <td>
+                                    {{empresa.mail}} 
+                                </td>
+                                <td class="row col  bottom-15">
+                                  
+                                      <div class="d-inline-block">
+                                                <div class="row">
+                    
+                              
+                                                    <button type="button" (click)="empresaDetail(empresa)" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal">Editar</button>
+
+                                                            <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modal-primary-label">
+                                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header state modal-primary">                                    
+                                                                                        <h4 class="modal-title" id="modal-primary-label"><i class="fa  fa-briefcase"></i>Editar Empresa</h4>
+                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <div class="">
+                                                                                            <div widget class="card">
+                                                                                           
+                                                                                                <div class="card-block widget-body">
+                                                                                                        <form [formGroup]="bussinessForm" class="row">
+                                                                                                            <div class="form-group col-md-5" [ngClass]="{'has-danger' :  bussinessForm.get('name').hasError('required') && bussinessForm.get('name').value != ''
+                                                                                                                                    , 'has-success' : !bussinessForm.get('name').hasError('required') }">
+                                                                                                                            <label class="form-control-label">Nombre</label>
+                                                                                                                            <div class="input-group">
+                                                                                                                                    <div class="input-group-addon"><i class="fa fa-id-card-o"></i></div>
+                                                                                                                                    <input formControlName="name" class="form-control" [ngClass]="{'form-control-danger' :  bussinessForm.get('name').hasError('required') && bussinessForm.get('name').value != ''
+                                                                                                                                    , 'form-control-success' :  !bussinessForm.get('name').hasError('required') }" type="text"> 
+                                                                                                                            </div>
+                                                                                                                        
+                                                                                                                            <span class="help-block text-danger" *ngIf="bussinessForm.get('name').hasError('required') && bussinessForm.get('name').value != ''">Nombre no puede estar vacio</span>                             
+                                                                                                                </div>
+                                                                                                                <div class="form-group col-md-5" [ngClass]="{'has-danger' : bussinessForm.get('mail').value != '' && bussinessForm.get('mail').hasError('required')  || bussinessForm.get('mail').value != ''  && bussinessForm.get('mail').hasError('invalidEmail')   , 'has-success' : !bussinessForm.get('mail').hasError('required') && !bussinessForm.get('mail').hasError('invalidEmail') }">
+                                                                                                                        <label class="form-control-label">Email</label>
+                                                                                                                        <div class="input-group">
+                                                                                                                            <div class="input-group-addon"><i class="fa fa-id-card-o"></i></div>
+                                                                                                                            
+                                                                                                                            <input formControlName="mail" class="form-control" [ngClass]="{'form-control-danger' : bussinessForm.get('mail').value != ''  && bussinessForm.get('mail').hasError('required') || bussinessForm.get('mail').value != ''  && bussinessForm.get('mail').hasError('invalidEmail'), 'form-control-success' :  !bussinessForm.get('mail').hasError('required') && !bussinessForm.get('mail').hasError('invalidEmail') }" type="text"> 
+                                                                                                                        </div>
+                                                                                                                        <span class="help-block text-danger" *ngIf=" bussinessForm.get('mail').value != ''  && bussinessForm.get('mail').hasError('required')">Email esta vacio</span>
+                                                                                                                        <span class="help-block text-danger" *ngIf=" bussinessForm.get('mail').value != ''  && bussinessForm.get('mail').hasError('invalidEmail')">Email Invalido</span>                             
+
+                                                                                                                    </div>
+                                                                                                                <div class="form-group col-md-12" [ngClass]="{'has-danger' : bussinessForm.get('phones').hasError('required')  ,
+                                                                                                                                'has-success' : !bussinessForm.get('phones').hasError('required') }">
+                                                                                                                                        <label class="form-control-label">Telefonos</label>
+                                                                                                                                        <div class="input-group"> 
+                                                                                                                                            <textarea formControlName="phones"  class="form-control" class="form-control" cols="10" rows="10"> </textarea>
+                                                                                                                                            
+                                                                                                                                        </div>
+                                                                                                                                    
+                                                                                                                                        <span class="help-block text-danger" *ngIf=" bussinessForm.get('phones').hasError('required') && bussinessForm.get('phones').value != ''">Telefono no puede estar vacio</span>                             
+                                                                                                                                                                  
+                                                                                                                 </div>
+                                                                                                                 <div class="form-group col-md-5" [ngClass]="{'has-danger' : bussinessForm.get('cellPhone').hasError('required') && bussinessForm.get('cellPhone').value != '' || bussinessForm.get('cellPhone').hasError('invalidMobile') && bussinessForm.get('cellPhone').value != '' , 'has-success' : !bussinessForm.get('cellPhone').hasError('required') && !bussinessForm.get('cellPhone').hasError('invalidMobile') }">
+                                                                                                                            <label class="form-control-label">Telefono Movil</label>
+                                                                                                                            <div class="input-group">  
+                                                                                                                                <div class="input-group-addon"><i class="fa fa-id-card-o"></i></div>
+                                                                                                                                <input maxlength="10" formControlName="cellPhone" class="form-control" [ngClass]="{'form-control-danger' : bussinessForm.get('cellPhone').hasError('required') && bussinessForm.get('cellPhone').value != '' || bussinessForm.get('cellPhone').hasError('invalidMobile') && bussinessForm.get('cellPhone').value != ''  , 'form-control-success' :  !bussinessForm.get('cellPhone').hasError('required') && !bussinessForm.get('cellPhone').hasError('invalidMobile') }" type="text"> 
+                                                                                                                            </div>
+                                                                                                                        
+                                                                                                                            <span class="help-block text-danger" *ngIf="bussinessForm.get('cellPhone').hasError('required') && bussinessForm.get('cellPhone').value != '' ">Telefono cellPhone no puede estar vacio</span>
+
+                                                                                                                            <span class="help-block text-danger" *ngIf="bussinessForm.get('cellPhone').hasError('invalidMobile') && bussinessForm.get('cellPhone').value != '' ">Telefono cellPhone invalido</span>                             
+                                                                                                                </div>
+                                                                                                                 <div class="form-group col-md-5" [ngClass]="{'has-danger' : bussinessForm.get('ruc').hasError('required') && bussinessForm.get('ruc').value != ''  || bussinessForm.get('ruc').hasError('invalidRuc') && bussinessForm.get('ruc').value != '' 
+                                                                                                                                        , 'has-success' : !bussinessForm.get('ruc').hasError('required') &&  !bussinessForm.get('ruc').hasError('invalidRuc')}">
+                                                                                                                                            <label class="form-control-label">Ruc</label>
+                                                                                                                                            <div class="input-group">  
+                                                                                                                                                <div class="input-group-addon"><i class="fa fa-id-card-o"></i></div>
+                                                                                                                                                <input maxlength="13" formControlName="ruc" class="form-control" [ngClass]="{'form-control-danger' :  bussinessForm.get('ruc').hasError('required')  ||  bussinessForm.get('ruc').hasError('invalidRuc') ,
+                                                                                                                                                'form-control-success' :  !bussinessForm.get('ruc').hasError('required') && !bussinessForm.get('ruc').hasError('invalidRuc') }" type="text"> 
+                                                                                                                                            </div>
+                                                                                                                                        
+                                                                                                                                            <span class="help-block text-danger" *ngIf="bussinessForm.get('ruc').hasError('required') && bussinessForm.get('ruc').value != ''">Ruc no puede estar vacio</span>                             
+                                                                                                                                            <span class="help-block text-danger" *ngIf="bussinessForm.get('ruc').hasError('invalidRuc') && bussinessForm.get('ruc').value != ''">Ruc Invalido</span>                             
+                                                                                                                                                                         
+                                                                                                                </div>
+                                                                                                                 <div class="form-group col-md-12">
+                                                                                                                                                <label for="input-12">Direccion</label>
+                                                                                                                                                <textarea formControlName="address"  class="form-control" class="form-control" cols="30" rows="10">
+
+                                                                                                                                                </textarea>
+
+                                                                                                                            </div>
+                                                                                                                
+
+                                                                                                                    
+
+
+                                                                                                              
+
+
+                                                                                                        
+                                                                                                                    
+                                                                                                        </form>                                                                                                 
+         
+            
+                                                                                                  
+                                                                                                
+                                                                                                </div>
+                                                                                            </div>
+    </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button (click)="editEmpresa()" type="button" class="btn btn-primary" data-dismiss="modal">Cambiar</button>
+                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <button type="button" (click)="idAssign(empresa._id)" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Borrar</button>
+                                                                        
+                                                                                                                                                <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modal-primary-label">
+                                                                                                                                                    <div class="modal-dialog" role="document">
+                                                                                                                                                        <div class="modal-content">
+                                                                                                                                                            <div class="modal-header state modal-danger">                                    
+                                                                                                                                                                <h4 class="modal-title" id="modal-error-label"><i class="fa fa-exclamation-triangle"></i>Estas Seguro?</h4>
+                                                                                                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="modal-body">
+                                                                                                                                                                Esta seguro?
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="modal-footer">
+                                                                                                                                                                <button (click)="borrar()" type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                                                                                                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                     
+
+                                                </div>
+                                                
+                                            </div>
+                                </td>
+                                </tr>
+                          
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="12">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[10, 25, 50, 100]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
