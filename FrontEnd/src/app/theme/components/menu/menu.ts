@@ -546,32 +546,32 @@ export const menuItems = [
       
     ]
   },
-  {
-    title: 'Renovaciones',
-    routerLink: 'presupuestos',
+  // {
+  //   title: 'Renovaciones',
+  //   routerLink: 'presupuestos',
 
-    icon: 'fa-file-text',
+  //   icon: 'fa-file-text',
 
-    selected: false,
-    expanded: false,
-    order: 0,
-    subMenu: [
-      {
-        title: 'Causas No Renovacion',
-        routerLink: 'renovacion/no-renovacion',
-        disabled: true,
-        selected: false,
-        expanded: false
-      },
-      {
-        title: 'Causas por ramo',
-        routerLink: 'renovacion/no-renovacion-ramo',
-        disabled: true,
-        selected: false,
-        expanded: false
-      },
-    ]
-  },
+  //   selected: false,
+  //   expanded: false,
+  //   order: 0,
+  //   subMenu: [
+  //     {
+  //       title: 'Causas No Renovacion',
+  //       routerLink: 'renovacion/no-renovacion',
+  //       disabled: true,
+  //       selected: false,
+  //       expanded: false
+  //     },
+  //     {
+  //       title: 'Causas por ramo',
+  //       routerLink: 'renovacion/no-renovacion-ramo',
+  //       disabled: true,
+  //       selected: false,
+  //       expanded: false
+  //     },
+  //   ]
+  // },
     {
     title: 'Facturacion',
     routerLink: 'polizas',
@@ -686,13 +686,13 @@ export const menuItems = [
         selected: false,
         expanded: false
       },
-      {
-        title: 'Reporte Renovaciones',
-        routerLink: 'reportes/renovacion',
-        disabled: true,
-        selected: false,
-        expanded: false
-      },
+      // {
+      //   title: 'Reporte Renovaciones',
+      //   routerLink: 'reportes/renovacion',
+      //   disabled: true,
+      //   selected: false,
+      //   expanded: false
+      // },
       {
         title: 'Reporte Facturación',
         routerLink: 'reportes/billing',
